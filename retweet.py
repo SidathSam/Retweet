@@ -58,7 +58,7 @@ def retweet(initial_status_id=None):
         replies = api.GetReplies(since_id=max_status_id)
     
         if len(replies) > 0:
-            # Strip off the leading @username
+            # Strip off the leading @BCCI
             cut_reply = re.compile(r"^@%s:?\s*" % USER, re.IGNORECASE)
             clean_reply = re.compile(r'^[^a-z0-9\s]*@', re.IGNORECASE)
             
@@ -84,7 +84,7 @@ def retweet(initial_status_id=None):
                 
                     clean_tweet = cut_reply.sub("", reply_text).strip()
                     
-                    new_tweet = "RT @BCCI @%s %s" % (retweeting_from, clean_tweet)
+                    new_tweet = "RT @BCCI #ThankYouSachin @%s %s" % (retweeting_from, clean_tweet)
                     
                     # If it's over 140 chars, cut it down, adding ellipses
                     # The "in reply to" will link to the original
