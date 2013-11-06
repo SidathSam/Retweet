@@ -84,7 +84,7 @@ def retweet(initial_status_id=None):
                 
                     clean_tweet = cut_reply.sub("", reply_text).strip()
                     
-                    new_tweet = "RT @%s %s" % (retweeting_from, clean_tweet)
+                    new_tweet = "RT @BCCI @%s %s" % (retweeting_from, clean_tweet)
                     
                     # If it's over 140 chars, cut it down, adding ellipses
                     # The "in reply to" will link to the original
